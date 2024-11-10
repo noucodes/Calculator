@@ -17,7 +17,8 @@ for (let button of allButtons) {
             try {
                 row3.innerText = row2.innerText;
                 row2.innerText = row1.innerText;
-                row1.innerText = eval(row1.innerText);
+                let expression = row1.innerText.replace(/(\d+)%/g, "($1/100)");
+                row1.innerText = eval(expression);
                 equal = true;
             } catch (e) {
                 row1.innerText = "Error";
